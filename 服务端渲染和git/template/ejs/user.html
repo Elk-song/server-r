@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0
+        }
+        .sdh-h{
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+            text-align: center;
+            padding: 20px;
+        }
+        .sdh-h img{
+            width: 100px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="sdh-h">
+            <img src="<%=data.recent_topics[0].author.avatar_url%>" alt="">
+            <p><%=data.loginname %></p>
+            <span><%=data.create_at.substring(0,10)+data.create_at.substring(11,16) %></span>
+            <span>积分<%=data.score%></span>
+        </div>
+        <div class="sdh-head">
+            <p>最近回复</p>
+            <p>最新发布</p>
+        </div>
+        <%data.recent_replies.forEach(item=>{%>
+            <div class="sdh-qh1">
+                <img src="<%=item.author.avatar_url%>" alt="">
+                <span><%=item.title %></span>
+                <p><%=item.author.loginname %></p>
+            </div>
+        <%}) %>
+        <%data.recent_topics.forEach(item=>{%>
+            <div class="sdh-qh2">
+                <img src="<%=item.author.avatar_url%>" alt="">
+                <span><%=item.title %></span>
+                <p><%=item.author.loginname %></p>
+            </div>
+        <%}) %>
+        
+</body>
+</html>
